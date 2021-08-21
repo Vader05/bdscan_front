@@ -1,11 +1,12 @@
-import { Formulario } from "./components/form";
-import { Navbar } from "./components/navbar";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Sidebar } from "./components/sidebar";
 
 function App() {
   return (
     <div>
-      <Navbar></Navbar>
-      <Formulario></Formulario>
+      <Router>
+        <Sidebar></Sidebar>
+      </Router>
     </div>
   );
 }

@@ -11,7 +11,6 @@ export class Datos extends Component {
             fontSize: '12px'
         }
         const theadfix = {
-            position: '-webkit-sticky', /* Safari... */
             position: 'sticky',
             top: '0',
             left: '0',
@@ -21,19 +20,20 @@ export class Datos extends Component {
                 <table className="table table-striped table-bordered table-sm" style={tablescroll}>
                     <thead style={theadfix} className="table-dark">
                         <tr>
-                            <td>TITULO</td>
-                            <td>CATEGORÍA</td>
-                            <td>CLUSTER</td>
+                            {this.props.numColumn.map((columna,i) => {
+                                return  (  <th>Campo {i+1}</th>)      
+                            })}
                         </tr>
                     </thead>
                     <tbody>
                         {this.props.data.map((element) => (
                             <tr>
-                                <td>{element.htitulo}</td>
-                                <td>{element.htitulo_cat}</td>
-                                <td>{element.cluster}</td>
+                                {Object.values(element).map((objeto)=>(
+                                    <td>{objeto}</td> 
+                                ))}  
                             </tr>
-                        ))}
+                        ))
+                        }
                     </tbody>
                 </table>
 
